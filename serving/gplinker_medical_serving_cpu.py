@@ -5,12 +5,10 @@ import json
 import time
 
 import numpy as np
-from bert4keras.backend import keras, K
-from bert4keras.backend import sparse_multilabel_categorical_crossentropy
+from bert4keras.backend import keras
 from bert4keras.layers import EfficientGlobalPointer as GlobalPointer
 from bert4keras.models import build_transformer_model
 from bert4keras.snippets import open, to_array
-from bert4keras.snippets import sequence_padding, DataGenerator
 from bert4keras.tokenizers import Tokenizer
 from pydantic import BaseModel
 from ray.serve import HTTPOptions
@@ -66,12 +64,6 @@ for i in range(len(role_all)):
 
 # 建立分词器
 tokenizer = Tokenizer(dict_path, do_lower_case=True)
-
-
-
-
-
-
 
 
 def extract_spoes(text, model, threshold=0):
